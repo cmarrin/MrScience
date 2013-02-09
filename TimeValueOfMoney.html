@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Time Value of Money Calculator</title>
+<script src='FindRoot.js' language='JavaScript'></script>
+<script>
+    const PMT = 0;
+    const PV = 1;
+    const FV = 2;
+    const IP = 3;
+    const NP = 4;
+    
+    function findRootTVM(form, id)
+    {
+        var pmt = 0;
+        if (id != PMT)
+            var pmt = parseFloat(form.PMTInput.value);
+            
+        var pv;
+        if (id != PV)
+            var pv = parseFloat(form.PVInput.value);
+
+        var fv;
+        if (id != FV)
+            var fv = parseFloat(form.FVInput.value);
+
+        var ip;
+        if (id != IP)
+            var ip = parseFloat(form.IPInput.value) / 1200;
+
+        var np;
+        if (id != NP)
+            var np = parseFloat(form.NPInput.value);
+
+        var regs = [ pmt, pv, fv, ip, np];
+        f = function(regs)
+        {
+            return regs[0] - (regs[1] + (regs[1] + regs[2]) / (Math.pow(1+regs[3], regs[4]) - 1)) * -regs[3];
+        }
+        
+        var lastValues = findRoot(f, regs, id, 0);
+        
+        switch(id) {
+            case PMT: form.PMTInput.value = regs[PMT]; break;
+            case PV: form.PVInput.value = regs[PV]; break;
+            case FV: form.FVInput.value = regs[FV]; break;
+            case IP: form.IPInput.value = regs[IP]; break;
+            case NP: form.NPInput.value = regs[NP]; break;
+        }
+    }    
+</script>
+</head>
+<body>
+<form name="TVMCalc">
+<table border="0" cellspacing="0" cellpadding="6" bgcolor="#CCCCCC">
+    <tr>
+        <td colspan="4" bgcolor="black"><span style="color:white">TVM Calculator</span></td>
+    </tr>
+    <tr>
+        <td align="right">PV:</td>
+        <td>$<input type="text" name="PVInput" size="8" maxlength="8" value="100000"></td>
+        <td align="right">%/yr:</td>
+        <td><input type="text" name="IPInput" size="8" maxlength="8" value="5">%</td>
+    </tr>
+    <tr>
+        <td align="right">PMT:</td>
+        <td>$<input type="text" name="PMTInput" size="8" maxlength="8" value="1000"></td>
+        <td align="right">Months:</td>
+        <td><input type="text" name="NPInput" size="8" maxlength="8" value="360"></td>
+    </tr>
+    <tr>
+        <td align="right">FV:</td>
+        <td>$<input type="text" name="FVInput" size="8" maxlength="8" value="0"></td>
+    </tr>
+    <tr>
+        <td colspan="4" align="center">
+            <input type="button" value="  PV   " onClick="findRootTVM(this.form, PV)">
+            <input type="button" value="  PMT  " onClick="findRootTVM(this.form, PMT)">
+            <input type="button" value="  FV   " onClick="findRootTVM(this.form, FV)">
+            <input type="button" value="  Rate " onClick="findRootTVM(this.form, IP)">
+            <input type="button" value="Periods" onClick="findRootTVM(this.form, NP)">
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

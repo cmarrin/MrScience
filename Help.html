@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1038.25">
+  <style type="text/css">
+    * { font-family:Helvetica; font-size:16px }
+    h1,h2 { font-weight:bold }
+    h1 { font-size: 1.5em }
+    h2 { font-size: 1.2em }
+  </style>
+</head>
+<body>
+<h1>Welcome to Mr. Science</h1>
+<p>
+Mr. Science is a versatile scientific calculator that uses Reverse Polish Notation 
+(RPN) similar to HP calculators. It provides a wide array of built-in math, 
+statistical functions and unit conversions. Mr. Science is also a programmer's 
+calculator, operating on hexadecimal, binary and octal numbers. Mr. Science is 
+programmable so any conceivable function can be added to the 8 available user keys.
+</p>
+<h1>How RPN Works</h1>
+<p>
+RPN is confusing to many people. But once you get used to it, using Mr. Science is fast
+and easy. This is especially true because the "hidden" registers can be seen in the
+upper right corner of the display. Mr. Science uses the same style of RPN that is used
+in HP calculators. In fact, if you've used with HP calculators then you'll be 
+familiar with many of the keys found in Mr. Science.
+</p>
+<p>
+With RPN, you enter the numbers you want to work with and then tell the calculator 
+what you want to do with them. This is really simple for functions which operate
+on a single number, like SIN. You simply press 4 5 SIN and you get the sine of 
+45 degrees (assuming you're in DEG mode, as shown in the upper left corner of the
+display). For operations taking two numbers, you use the ENTER key. To add you
+hit 2 ENTER 3 + and you get the sum of 2 and 3 and the display shows 5. These 
+binary operations work on the numbers in the 'x' and 'y' registers. The 'y' register
+is shown in the upper right and the 'x' register is the big number displayed in the
+middle of the display. For operations that matter (like division) the operation is
+y / x, with the y operator always coming first.
+</p>
+<h2>The Stack</h2>
+<p>
+As in HP calculators, Mr. Science has a 4 register "stack". When you hit the ENTER 
+key, number are pushed "up" the stack: whatever was in the x register moves to the
+y register, y moves to z, z moves to t and whatever was in the t register is lost.
+If you do this you'll notice that the value that was in the x register also stays
+in the x register. It is essentially duplicated. This makes it really easy to do
+things like squaring a number. 12 ENTER * will show 144, which is x^2.
+</p>
+<p>
+Some operations automatically perform an ENTER operation. For instance if you were
+to go 1 ENTER 2 +, you'd see a 3 in the x register. If you then type a 4, an
+implicit ENTER will be performed, so you'll see the 3 move into the y register.
+This is what makes it easy to do chain calculations. In the above situation, if 
+you hit + 5 + 6 +, you'll get the result of adding all those numbers together.
+</p>
+<p>
+There one other interesting stack movement that happens automatically. Let's say
+you have the values 4 6 11 and 15 in x, y, z and t. If you press the '+' key
+The 4 and 6 are added and you get 10 in the x register. But the y value goes
+away as well to be replaced by z and then z is replaced by t. The values "pop
+down". That's nice because it lets you have temporary results on the stack
+for use later. So if you wanted to do (3 + 4) * (5 + 6) you can press:
+3 4 + 5 6 + *. The temporary result from the 3 + 4 operation is stored while
+adding 5 + 6, so the final operation is 7 * 11 and you get 77.
+</p>
+<p>
+The 't' register is special. When the stack pops down, whatever value was in
+the 't' register before stays there. It essentially gets copied to the
+y register. So now you have two copies. You can use this to perform operations
+by the same number over and over. Let's say you want to multiply a bunch of
+numbers by 5. Simply press 5 ENTER ENTER ENTER, which copies the 5 into
+all 4 registers. Now enter any number and hit *. Notice that ...
+</p>
+<p>
+You can also do other operations to the stack like ROLLv and ROLL^. The simply
+rotate each register value in the direction indicated, with the value on one
+end moving to the other end. So ROLL^ is x -> y -> z -> t -> x. 
+</p>
+<p>
+There's one more register shown on the display 'lastx'. That's the value 
+that was in the x register just before the last operation. For instance,
+if you hit 3 4 +, the the x register will contain 7 and lastx will contain
+4, the value that had just been in the x register. That's nice because it
+let's you undo the operation. Just hit LASTX (which is 2ND ENTER) and now
+you have 4 in the x register and 7 gets pushed into the y register. Then 
+hit - (the opposite of +) and the result is 3. Hit LASTX again and now
+4 is in x and 3 is in y, just like when you started.
+</p>
+<p>
+Finally, the 't' register is special. When 
+</p>
+<h1>Programming</h1>
+<p>
+Programming Mr. Science is quick and easy. You select FUN QUIK. You'll notice that the 
+R/S button in the lower left corner of the main buttons has changed to PRG. This means 
+you are in the programming mode. Any keystrokes you enter from now on will be entered in 
+the current program. Press PRG to see the current program. The list on the right shows the 
+instructions currently entered. With a highlight on the current instruction. New keystrokes 
+are added before this instruction. You can scroll this list and double tap on an instruction
+to select it. New keystrokes will now go before the selected instruction. Double tap
+on the header bar at the top of the list to center the current instruction.
+</p>
+<h2>Programming Basics</h2>
+<p>
+Programs in Mr. Science use the same RPN system as in normal operation. To execute a
+program you've entered, leave programming mode by pressing FUN QUIK again. You'll
+see the lower left key has changed back to R/S. Press this key to execute the
+program you entered from the beginning. Whatever is in the x, y, z, and t registers 
+when the program starts are used by the executing program. For instance, you 
+could add 1 to any number in the x register with the simple 2 instruction program 
+"1; ADD". If you put a number in the x register and execute, you will see a number 
+one greater than the one you entered. Pressing R/S repeatedly would increment
+the number in the x register over and over.
+</p>
+<h2>Assigning User Keys</h2>
+<p>
+The technique above is the <em>Quick Program</em> method of programming. It lets 
+you quickly create a program and use it right away. But you can also save
+programs and assign them to user keys. When you first enter keystrokes you are
+making an <em>anomymous function</em>, a function with no name and not assigned
+to any user key. By pressing PRG FUNC you give the current function a name and
+it gets automatically assigned to the next available user key (on the FUN button
+panel). The user key shows the function name and when you press it, the function
+is executed. You can store up to 8 user functions. When you press PRG FUNC you
+get an alphanumeric keyboard with all the letters and numbers you can use
+in your function name. Pressing the shift key in the lower right corner gives
+you many symbols to use. On the lowest row, in addition to the shift key
+you can backspace, cancel the operation, or press OK, which accepts the name
+and assigns the key.
+</p>
+<h2>Creating Additional Functions</h2>
+<p>
+Once you've named your function, you can press the PRG NEW key to create a new
+anonymous function after the current one. Then you can enter more keystrokes
+and assign the function to another user key.
+</p>
+<h2></h2>
+<p>
+</p>
+<h2></h2>
+<p>
+</p>
+<h2></h2>
+<p>
+</p>
+</p>
+</body>
+</html>

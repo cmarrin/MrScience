@@ -1,0 +1,218 @@
+// To do for compiling this file
+//
+//  - case-insensitive strings (xPS, EU)
+//  - comments at the end of line (xPS, EU)
+//  x func & proc keywords (PS)
+//  - procs with string name, preceeded by '$' (PS, EU)
+//  - global reg names, prefixed with '$'. Name with prefix is key in m_registers (EU)
+//  - local reg names, prefixed with '@'. Name with prefix is key in a local dictionary stack (EU)
+//  - ignore leading spaces in lines (xPS, EU)
+//  - validate nesting (valid 'else', 'then', 'loop') (EU)
+//  - validate rcl of globals and locals (must have been previously stored) (EU, IU)
+//
+//  x desc, title and category keywords (PS)
+//  - add 'key' to func, probably as 2nd param to 'func' (PS)
+
+// Root Finder
+
+// x - first guess (xmin)
+// regs[regs["$v"]] - second guess (xmax)
+// proc[regs["$f"]] - function to evaluate. Takes one numeric value, returns one numeric value
+
+func:solve
+    sto:@xmin
+    rcl:$v
+    rcl:(x)
+    sto:@xmax
+
+    dup2
+    gt // xmin > xmax
+    if
+        sto:@xmin
+        xchg
+        sto:@xmax
+    else
+        dup2
+        eq // xmin == xmax
+        if
+            xchg
+            1
+            +
+            sto:@xmax
+        then
+    then
+
+    // xmin and xmax are the two guesses
+    rcl:@xmin
+    call:$execf
+    sto:@ymin
+    rcl:@xmax
+    call:$execf
+    sto:@ymax
+    
+    // if signs match, we need a better guess
+    rcl:@ymin
+    enter
+    call:$sign
+    rcl:@ymax
+    call:$sign
+    eq
+    if
+        enter
+        0
+        lt // ymin < 0
+            rcl:@ymax
+            lt // ymin < ymax
+            if
+                rcl:@xmax
+                sto:@xmin
+            then
+            
+            // xmax = findGuess(xmin, xmin < xmax);
+            rcl:@xmin
+            enter
+            rcl:@xmax
+            lt
+            call:$findGuess
+            sto:@xmax
+        else
+            rcl:@ymax
+            gt // ymin > ymax
+            if
+                rcl:@xmin
+                sto:@xmax
+            then
+                        
+            // xmin = $findGuess(xmax, xmax < xmin);
+            rcl:@xmax
+            enter
+            rcl:@xmin
+            lt
+            call:$findGuess
+            sto:@xmin
+        then
+    then
+
+    // Iterate and find the root
+    do
+        rcl:@xmax
+        rcl:@xmin
+        dup2
+        sub
+        1e-34
+        le
+        brkif
+        
+        // Calculate xmid of domain
+        add
+        2
+        div
+        sto:@xmid
+
+        // Find f(xmid)
+        call:$execf
+        sto:@fxmid
+        rcl:@xmin
+        call:$execf
+        rcl:@fxmid
+        mul
+        0
+        lt // f(xmid) * f(xmin) < 0)
+        if
+            // Throw away xmax
+            rcl:@xmid
+            sto:@xmax
+        else 
+            rcl:@xmax
+            call:$execf
+            rcl:@fxmid
+            mul
+            0
+            lt // f(xmid) * f(xmax) < 0
+            if
+                // Throw away xmin
+                rcl:@xmid
+                sto:@xmin
+            else
+                // Our midpoint is exactly on the root
+                break
+            then
+        then
+    loop
+
+    rcl:@xmid
+end
+
+// TOS: x
+proc:$sign
+    0
+    ge
+    if
+        1
+    else
+        -1
+    then
+end
+
+proc:$execf
+    rcl:$v
+    sto:(x)
+    rcl:$f
+    call:(x)
+end
+
+// TOS: increasing flag
+// TOS-1:x
+proc:$findGuess
+    // Determine sign of iteration
+    xchg
+    sto:@x
+    0
+    lt
+    xor
+    if
+        1
+    else
+        -1
+    then
+    sto:@sgn
+
+    // determine initial xdelta
+    0.1
+    mul
+    sto:@xdelta
+    
+    // Iterate a maximum of 1000 times, adjusting x until the sign changes
+    0
+    sto:@maxIters
+    do
+        // exit if maxIters reached
+        rcl:@maxIters
+        1000
+        ge
+        brkif
+        
+        // exit if we flipped sign
+        rcl:@x
+        rcl:@xdelta
+        add
+        call:$execf
+        rcl:@sgn
+        mul
+        0
+        ge
+        brkif
+        
+        2
+        sto_mul:@xdelta
+        
+        1
+        sto_add:@maxIters
+    loop
+
+    rcl:@x
+    rcl:@xdelta
+    add
+end
+
+    
