@@ -36,7 +36,6 @@
 		49C93A65117CA90800F54964 /* ViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C93A64117CA90800F54964 /* ViewControllerBase.m */; };
 		49CB80A1113D527800DD318A /* Help.html in Resources */ = {isa = PBXBuildFile; fileRef = 49CB80A0113D527800DD318A /* Help.html */; };
 		49CB81D1113EC94F00DD318A /* FunctionButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CB81D0113EC94F00DD318A /* FunctionButtonViewController.m */; };
-		49CB828A113FFDF700DD318A /* Mr Science Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CB8289113FFDF700DD318A /* Mr Science Icon.png */; };
 		49CB84A11143FDA500DD318A /* FirstButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CB849E1143FDA500DD318A /* FirstButtonViewController.m */; };
 		49CB84A21143FDA500DD318A /* SecondButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CB84A01143FDA500DD318A /* SecondButtonViewController.m */; };
 		49CB84CD11440AB500DD318A /* ConversionsButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CB84CC11440AB500DD318A /* ConversionsButtonViewController.m */; };
@@ -63,6 +62,8 @@
 		49CB92F8115509C500DD318A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CB92F1115509C500DD318A /* DetailViewController.m */; };
 		49CB92F9115509C500DD318A /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CB92F3115509C500DD318A /* EditViewController.m */; };
 		49CB92FA115509C500DD318A /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CB92F5115509C500DD318A /* ListViewController.m */; };
+		49CDBD2316C6BE6700184A5A /* MrScienceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CDBD2216C6BE6700184A5A /* MrScienceIcon.png */; };
+		49CDBD2516C6BE6F00184A5A /* MrScienceIconx2.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CDBD2416C6BE6F00184A5A /* MrScienceIconx2.png */; };
 		49EC14DE11528D7C006D3D45 /* DispButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EC14DD11528D7C006D3D45 /* DispButtonViewController.m */; };
 		49EC18231180ABBA006D3D45 /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EC181E1180ABBA006D3D45 /* LoadViewController.m */; };
 		49EC18241180ABBA006D3D45 /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EC18201180ABBA006D3D45 /* ShowViewController.m */; };
@@ -168,7 +169,6 @@
 		49CB80A0113D527800DD318A /* Help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Help.html; sourceTree = "<group>"; };
 		49CB81CF113EC94F00DD318A /* FunctionButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FunctionButtonViewController.h; path = Classes/FunctionButtonViewController.h; sourceTree = "<group>"; };
 		49CB81D0113EC94F00DD318A /* FunctionButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FunctionButtonViewController.m; path = Classes/FunctionButtonViewController.m; sourceTree = "<group>"; };
-		49CB8289113FFDF700DD318A /* Mr Science Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mr Science Icon.png"; sourceTree = "<group>"; };
 		49CB849D1143FDA500DD318A /* FirstButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstButtonViewController.h; path = Classes/FirstButtonViewController.h; sourceTree = "<group>"; };
 		49CB849E1143FDA500DD318A /* FirstButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstButtonViewController.m; path = Classes/FirstButtonViewController.m; sourceTree = "<group>"; };
 		49CB849F1143FDA500DD318A /* SecondButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondButtonViewController.h; path = Classes/SecondButtonViewController.h; sourceTree = "<group>"; };
@@ -203,6 +203,8 @@
 		49CB92F3115509C500DD318A /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditViewController.m; path = Classes/EditViewController.m; sourceTree = "<group>"; };
 		49CB92F4115509C500DD318A /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewController.h; path = Classes/ListViewController.h; sourceTree = "<group>"; };
 		49CB92F5115509C500DD318A /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewController.m; path = Classes/ListViewController.m; sourceTree = "<group>"; };
+		49CDBD2216C6BE6700184A5A /* MrScienceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MrScienceIcon.png; sourceTree = "<group>"; };
+		49CDBD2416C6BE6F00184A5A /* MrScienceIconx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MrScienceIconx2.png; sourceTree = "<group>"; };
 		49EC14DC11528D7C006D3D45 /* DispButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DispButtonViewController.h; path = Classes/DispButtonViewController.h; sourceTree = "<group>"; };
 		49EC14DD11528D7C006D3D45 /* DispButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DispButtonViewController.m; path = Classes/DispButtonViewController.m; sourceTree = "<group>"; };
 		49EC181D1180ABBA006D3D45 /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadViewController.h; path = Classes/LoadViewController.h; sourceTree = "<group>"; };
@@ -346,6 +348,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				49CDBD2416C6BE6F00184A5A /* MrScienceIconx2.png */,
+				49CDBD2216C6BE6700184A5A /* MrScienceIcon.png */,
 				289233A00DB2D0730083E9F9 /* Views */,
 				080E96DDFE201D6D7F000001 /* Application Delegate */,
 				49C93A53117CA69700F54964 /* Calculator */,
@@ -376,7 +380,6 @@
 				49CB92B81155082800DD318A /* Nibs */,
 				49FC59711110EC7900C11385 /* images */,
 				491804BA11877B56008EA949 /* MrScience-Info.plist */,
-				49CB8289113FFDF700DD318A /* Mr Science Icon.png */,
 				49CB80A0113D527800DD318A /* Help.html */,
 			);
 			name = Resources;
@@ -614,7 +617,6 @@
 				49EC31711132CCBF00A701AC /* shift-orange-t.png in Resources */,
 				4930E56F1136D06B003CA5E2 /* gradient.png in Resources */,
 				49CB80A1113D527800DD318A /* Help.html in Resources */,
-				49CB828A113FFDF700DD318A /* Mr Science Icon.png in Resources */,
 				49CB92CD1155085000DD318A /* AlphanumericButtonView.xib in Resources */,
 				49CB92CE1155085000DD318A /* AlphanumericShiftButtonView.xib in Resources */,
 				49CB92CF1155085000DD318A /* BinButtonView.xib in Resources */,
@@ -635,6 +637,8 @@
 				49CB92DF1155085000DD318A /* SecondButtonView.xib in Resources */,
 				499719271159B35700055C0C /* gradient_bright.png in Resources */,
 				491C3EF211C2C19B004C9F36 /* buttonClick.wav in Resources */,
+				49CDBD2316C6BE6700184A5A /* MrScienceIcon.png in Resources */,
+				49CDBD2516C6BE6F00184A5A /* MrScienceIconx2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,7 +701,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "Mr Science";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos7.0.internal;
 				TARGETED_PRODUCT_TYPE = 1;
 			};
 			name = Debug;
@@ -716,7 +720,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "Mr Science";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos7.0.internal;
 				TARGETED_PRODUCT_TYPE = 1;
 			};
 			name = Release;
